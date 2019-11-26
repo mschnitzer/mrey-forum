@@ -1,0 +1,12 @@
+Name: <%= @board.name %>
+
+<% if @is_main_category %>
+  <fieldset>
+    <ul>
+      <% @board.boards.each do |sub_board| %>
+        <li><%= link_to sub_board.name, boards_show_path(sub_board) %></li>
+      <% end %>
+    </ul>
+  </fieldset>
+<% else %>
+<% end %>
