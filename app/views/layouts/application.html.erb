@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    Angemeldet als:
+    <% if User.current %>
+      <strong><%= User.current.username %></strong> | <%= link_to 'Logout', users_logout_path, method: :post %>
+    <% else %>
+      <strong>Gast</strong>
+    <% end %>
+    <hr />
+    <% if flash[:error] %>
+      <fieldset><%= flash[:error] %></fieldset>
+    <% end %>
+    <% if flash[:success] %>
+      <fieldset><%= flash[:success] %></fieldset>
+    <% end %>
     <%= yield %>
   </body>
 </html>
