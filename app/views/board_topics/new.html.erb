@@ -5,7 +5,7 @@
   <%= f.label :username %><br />
   <%= f.text_field :username %><br /><br />
 
-  <%= f.fields_for :board_topic_posts do |p| %>
+  <%= f.fields_for @board_topic_post do |p| %>
     <%= p.label :text %><br />
     <%= p.text_area :text %><br /><br />
   <% end %>
