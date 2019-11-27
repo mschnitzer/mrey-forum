@@ -14,7 +14,7 @@
     <% if User.current %>
       <strong><%= User.current.username %></strong> | <%= link_to 'Logout', users_logout_path, method: :post %>
     <% else %>
-      <strong>Gast</strong>
+      <strong>Gast</strong> | <%= link_to 'Login', users_login_path %>
     <% end %>
     <hr />
     <% if flash[:error] %>

@@ -1,0 +1,9 @@
+<%= form_for @user, url: users_login_perform_path, method: :post, remote: false do |f| %>
+  <%= f.label :username %><br />
+  <%= f.text_field :username %><br /><br />
+
+  <%= f.label :password %><br />
+  <%= f.password_field :password %><br /><br />
+
+  <%= f.submit 'Anmelden' %>
+<% end %>
