@@ -1,4 +1,8 @@
-Name: <%= @board.name %>
+Name: <%= @board.name %><br /><br />
+
+<% if policy(BoardTopic).new? %>
+  <%= link_to 'Erstellen', board_topics_new_path %><br /><br />
+<% end %>
 
 <% if @is_main_category %>
   <fieldset>

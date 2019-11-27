@@ -1,6 +1,8 @@
 class BoardTopicsController < ApplicationController
   # GET /boards/:id/topics/new
   def new
+    authorize BoardTopic
+
     Board.find(params[:id])
 
     @board_topic = BoardTopic.new
@@ -9,6 +11,8 @@ class BoardTopicsController < ApplicationController
 
   # POST /boards/:id/topics/new
   def create
+    authorize BoardTopic
+
     board = Board.find(params[:id])
 
     ApplicationRecord.transaction do

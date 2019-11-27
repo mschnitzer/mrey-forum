@@ -1,5 +1,7 @@
 class BoardTopic < ApplicationRecord
   belongs_to :board
+  belongs_to :user
+
   has_many :board_topic_posts, dependent: :destroy
 
   validates :title, presence: true
