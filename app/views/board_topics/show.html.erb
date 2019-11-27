@@ -1,0 +1,10 @@
+<h2><%= @board_topic.title %></h2>
+
+<% @posts.each do |post| %>
+  <fieldset>
+    <legend>Autor: <%= post.username %></legend>
+    <%= post.text %>
+    <hr />
+    <%= l post.created_at %>
+  </fieldset>
+<% end %>

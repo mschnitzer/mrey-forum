@@ -12,5 +12,19 @@ Name: <%= @board.name %><br /><br />
       <% end %>
     </ul>
   </fieldset>
-<% else %>
 <% end %>
+
+<table border="0">
+  <tr>
+    <td>#</td>
+    <td>Title</td>
+    <td>Author</td>
+  </tr>
+  <% @topics.each do |topic| %>
+    <tr>
+      <td><%= topic.id %></td>
+      <td><%= link_to topic.title, board_topics_show_path(@board, topic) %></td>
+      <td><%= topic.username %></td>
+    </tr>
+  <% end %>
+</table>

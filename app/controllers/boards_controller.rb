@@ -12,5 +12,6 @@ class BoardsController < ApplicationController
     end
 
     @is_main_category = !@board.board
+    @topics = @board.board_topics
   end
 end

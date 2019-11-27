@@ -6,4 +6,8 @@ class BoardTopic < ApplicationRecord
 
   validates :title, presence: true
   validates :username, presence: true
+
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
 end

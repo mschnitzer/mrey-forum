@@ -46,4 +46,15 @@ class BoardTopicsController < ApplicationController
 
     render :new
   end
+
+  def show
+    @board_topic = BoardTopic.find(params[:id])
+
+    if @board_topic.to_param != params[:id] || @board_topic.board.to_param != params[:board_id]
+      redirect_to board_topics_show_path(@board_topic.board, @board_topic)
+      return
+    end
+
+    @posts = @board_topic.board_topic_posts
+  end
 end
