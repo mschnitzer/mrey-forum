@@ -14,16 +14,19 @@ class BoardTopicsController < ApplicationController
     authorize BoardTopic
 
     board = Board.find(params[:id])
+    user = User.current
 
     ApplicationRecord.transaction do
       @board_topic = BoardTopic.new(
         board:    board,
         title:    params[:board_topic][:title],
-        username: params[:board_topic][:username]
+        user:     user,
+        username: user.username
       )
 
       @board_topic_post = BoardTopicPost.new(
-        username: params[:board_topic][:username],
+        user:     user,
+        username: user.username,
         text:     params[:board_topic][:board_topic_post][:text]
       )
 
