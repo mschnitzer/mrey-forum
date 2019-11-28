@@ -11,6 +11,8 @@ class BoardTopicPostsController < ApplicationController
       text:        params[:board_topic_post][:text]
     )
 
+    post.file.attach(params[:board_topic_post][:file])
+
     if post.save
       flash[:success] = 'post created'
     else

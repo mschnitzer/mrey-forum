@@ -24,6 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pundit'
 # passenger
 gem 'passenger', '>= 6.0.0'
+gem 'filesize'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

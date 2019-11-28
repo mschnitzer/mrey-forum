@@ -6,6 +6,9 @@
     <%= post.text %>
     <hr />
     <%= l post.created_at %>
+    <% if post.file.attached? %>
+      | <%= link_to "Download Attachment (#{post.file.filename}, #{Filesize.from("#{post.file.byte_size} B").pretty})", rails_blob_path(post.file) %>
+    <% end %>
   </fieldset>
 <% end %>
 
@@ -15,6 +18,8 @@
     <fieldset>
       <%= f.label :text %><br />
       <%= f.text_area :text %><br /><br />
+
+      <%= f.file_field :file %><br /><br />
 
       <%= f.hidden_field :board_topic_id %>
       <%= f.submit 'Erstellen' %>
