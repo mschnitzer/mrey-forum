@@ -1,6 +1,6 @@
 class BoardTopicPostPolicy < ApplicationPolicy
   def new?
-    @user && (@user.admin || @record.board_topic.board.name != 'Intern')
+    @user
   end
 
   def create?

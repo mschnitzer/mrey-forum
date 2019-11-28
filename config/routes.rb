@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get '/boards/:board_id/:id', to: 'board_topics#show', as: :board_topics_show
 
+  post '/boards/topics/:id/posts', to: 'board_topic_posts#create', as: :board_topic_posts_create
+
   get '/users/new', to: 'users#new', as: :users_new
   post '/users/new', to: 'users#create', as: :users_create
   post '/users/logout', to: 'users#logout', as: :users_logout

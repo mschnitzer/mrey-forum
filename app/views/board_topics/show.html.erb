@@ -9,6 +9,15 @@
   </fieldset>
 <% end %>
 
-<% if policy(BoardTopicPost.new(board_topic: @board_topic)).new? %>
+<% if policy(BoardTopicPost).new? %>
+  <br /><br />
+  <%= form_for @board_topic_post, url: board_topic_posts_create_path, remote: false do |f| %>
+    <fieldset>
+      <%= f.label :text %><br />
+      <%= f.text_area :text %><br /><br />
 
+      <%= f.hidden_field :board_topic_id %>
+      <%= f.submit 'Erstellen' %>
+    </fieldset>
+  <% end %>
 <% end %>

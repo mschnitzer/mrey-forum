@@ -59,5 +59,6 @@ class BoardTopicsController < ApplicationController
     end
 
     @posts = @board_topic.board_topic_posts
+    @board_topic_post = BoardTopicPost.new(board_topic: @board_topic)
   end
 end
