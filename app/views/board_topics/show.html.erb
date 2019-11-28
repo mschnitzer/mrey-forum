@@ -3,11 +3,20 @@
 <% @posts.each do |post| %>
   <fieldset>
     <legend>Autor: <%= post.username %></legend>
+    <% if policy(post).delete? %>
+      <div align="right">
+        <%= link_to 'Delete Post', board_topic_posts_delete_path(post), data: { confirm: 'Are you sure?', method: :delete } %>
+      </div>
+    <% end %>
+
     <%= post.text %>
     <hr />
     <%= l post.created_at %>
     <% if post.file.attached? %>
       | <%= link_to "Download Attachment (#{post.file.filename}, #{Filesize.from("#{post.file.byte_size} B").pretty})", rails_blob_path(post.file) %>
+      <% if policy(post).delete_file? %>
+        | <%= link_to '[Delete]', board_topic_posts_delete_file_path(post), data: { confirm: 'Are you sure?', method: :delete } %>
+      <% end %>
     <% end %>
   </fieldset>
 <% end %>

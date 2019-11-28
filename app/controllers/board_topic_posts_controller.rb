@@ -21,4 +21,25 @@ class BoardTopicPostsController < ApplicationController
 
     redirect_to board_topics_show_path(post.board_topic.board, post.board_topic)
   end
+
+  def delete
+    post = BoardTopicPost.find(params[:id])
+    authorize post
+
+    post.destroy!
+
+    flash[:success] = 'post deleted'
+    redirect_back fallback_location: root_path
+  end
+
+  # DELETE /posts/:id/file
+  def delete_file
+    post = BoardTopicPost.find(params[:id])
+    authorize post
+
+    post.file.purge
+
+    flash[:success] = 'file deleted'
+    redirect_back fallback_location: root_path
+  end
 end
