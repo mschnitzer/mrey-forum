@@ -8,3 +8,7 @@
     <%= l post.created_at %>
   </fieldset>
 <% end %>
+
+<% if policy(BoardTopicPost.new(board_topic: @board_topic)).new? %>
+
+<% end %>
