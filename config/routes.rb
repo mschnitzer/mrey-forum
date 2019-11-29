@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/boards/:board_id/:id', to: 'board_topics#show', as: :board_topics_show
 
+  get '/boards/topics/:id/posts', to: 'board_topic_posts#list', as: :board_topic_posts_list
   post '/boards/topics/:id/posts', to: 'board_topic_posts#create', as: :board_topic_posts_create
   delete '/posts/:id', to: 'board_topic_posts#delete', as: :board_topic_posts_delete
   delete '/posts/:id/file', to: 'board_topic_posts#delete_file', as: :board_topic_posts_delete_file

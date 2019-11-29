@@ -1,6 +1,7 @@
 class BoardTopicNotificationChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "board_topic_#{params[:id]}"
+    board_topic = BoardTopic.find_by(id: params[:id])
+    stream_for board_topic if board_topic
   end
 
   def unsubscribed
